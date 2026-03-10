@@ -52,6 +52,7 @@ export function useBrainStream() {
   >([]);
   const [cycleActive, setCycleActive] = useState(false);
   const [connected, setConnected] = useState(false);
+  const connectedRef = useRef(false);
 
   useEffect(() => {
     let es: EventSource | null = null;
@@ -60,7 +61,10 @@ export function useBrainStream() {
     function connect() {
       es = new EventSource("/api/stream");
 
-      es.addEventListener("connected", () => setConnected(true));
+      es.addEventListener("connected", () => {
+        connectedRef.current = true;
+        setConnected(true);
+      });
 
       es.addEventListener("cycle_start", () => {
         setCycleActive(true);
@@ -89,6 +93,7 @@ export function useBrainStream() {
       es.addEventListener("cycle_complete", () => setCycleActive(false));
 
       es.onerror = () => {
+        connectedRef.current = false;
         setConnected(false);
         es?.close();
         retryTimeout = setTimeout(connect, 5000);
@@ -98,7 +103,7 @@ export function useBrainStream() {
     connect();
 
     const handleVisibility = () => {
-      if (document.visibilityState === "visible" && !connected) {
+      if (document.visibilityState === "visible" && !connectedRef.current) {
         es?.close();
         connect();
       }
@@ -110,7 +115,7 @@ export function useBrainStream() {
       clearTimeout(retryTimeout);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [connected]);
+  }, []);
 
   return { phases, cycleActive, connected };
 }
