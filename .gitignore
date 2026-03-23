@@ -8,3 +8,6 @@ out/
 .turbo/
 *.tsbuildinfo
 next-env.d.ts
+
+# Sigil cache
+.sigil-cache.json

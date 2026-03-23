@@ -1,0 +1,16 @@
+export const PHASE_ORDER = [
+  "project_scan",
+  "harvest",
+  "reindex",
+  "assess",
+  "synthesize",
+  "directives",
+  "auto_experiment",
+  "decay",
+  "weave",
+  "consensus",
+  "audit",
+  "suggest",
+  "heal",
+  "l1_refresh",
+] as const;
