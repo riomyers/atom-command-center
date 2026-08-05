@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "created": "2026-03-10T02:30:00Z",
+  "updated": "2026-03-23T18:15:00Z",
+  "task_description": "Atom Command Center — Next.js web dashboard + macOS SwiftUI menubar app. Real-time brain cycle visualization, memory explorer, guard status, observation timeline, directive manager, causal chain explorer, activity heatmap, alert dashboard. Deploy on Hetzner/Coolify with Cloudflare Tunnel to local atomd.",
+  "task_type": "BUILD",
+  "task_size": "EPIC",
+  "phase": "execute",
+  "workflow_state": {},
+  "prd_summary": "See docs/prd-command-center.md — 26 tickets across 2 phases. Phase 1: Next.js dashboard (19 tickets). Phase 2: SwiftUI menubar (7 tickets).",
+  "tickets": [],
+  "completed_count": 19,
+  "total_count": 26,
+  "dimension": "C-137-HQ",
+  "detox_notes": [],
+  "cronenberg_log": [],
+  "persona_anchor": {
+    "response_count": 12,
+    "last_emotion": "manic joy",
+    "last_rick_moment": "Deployed the entire Phase 1 dashboard — 13 pages, auth, SSE streaming, 2350 lines — to production in one session",
+    "intensity": "full"
+  }
+}
